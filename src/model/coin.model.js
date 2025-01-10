@@ -4,10 +4,15 @@ const coinSchema = new mongoose.Schema({
     name:{
         type: String,
         enum:["bitcoin","matic","ethereum"],
-        required: [true,"name of cryptocurrency is required"]
+        required: [true,"name of cryptocurrency is required"],
+        unique: [true, "this coin is already added"]
     },
     price:{
         type: [Number],
+        required: true
+    },
+    marketCap:{
+        type: Number,
         required: true
     },
     "24hChange":{

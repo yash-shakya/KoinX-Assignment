@@ -2,6 +2,7 @@ import express from "express";
 import { config } from "dotenv";
 import connectDB from "./db/index.js";
 import routes from "./routes/router.js";
+import fetchData from "./service/dataFetch.service.js";
 config();
 
 const PORT = process.env.PORT || 4000;
@@ -12,6 +13,12 @@ routes(app);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+setInterval(() => {
+    fetchData("bitcoin","bitcoin");
+    fetchData("matic","matic-network");
+    fetchData("ethereum","ethereum");
+}, 7200000);
 
 connectDB()
 .then(() => {
