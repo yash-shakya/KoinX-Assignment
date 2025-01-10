@@ -14,11 +14,13 @@ routes(app);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
+// Task 1
 setInterval(() => {
     fetchData("bitcoin","bitcoin");
     fetchData("matic","matic-network");
     fetchData("ethereum","ethereum");
-}, 20000);
+}, 7200000);
 
 connectDB()
 .then(() => {
