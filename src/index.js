@@ -18,7 +18,7 @@ setInterval(() => {
     fetchData("bitcoin","bitcoin");
     fetchData("matic","matic-network");
     fetchData("ethereum","ethereum");
-}, 7200000);
+}, 20000);
 
 connectDB()
 .then(() => {
