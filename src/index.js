@@ -1,5 +1,6 @@
 import express from "express";
 import { config } from "dotenv";
+import cors from "cors";
 import connectDB from "./db/index.js";
 import routes from "./routes/router.js";
 import fetchData from "./service/dataFetch.service.js";
@@ -11,6 +12,7 @@ const app = express();
 
 routes(app);
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
